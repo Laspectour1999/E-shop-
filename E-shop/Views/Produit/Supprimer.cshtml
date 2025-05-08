@@ -1,0 +1,28 @@
+﻿@model E_shop.Models.Produit
+
+@{
+    ViewBag.Title = "Supprimer";
+}
+
+<h2>Vous allez supprimer le produit : </h2>
+
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Afficher les details du Produit</h3>
+    </div>
+    <div class="panel-body">
+        <p>Nom : @Html.DisplayFor(Model => Model.NomProduit)</p>
+        <p>Description : @Html.DisplayFor(Model => Model.Description)</p>
+        <p>Prix : @Html.DisplayFor(Model => Model.Prix)</p>
+        <p>Quantite : @Html.DisplayFor(Model => Model.Quantite)</p>
+
+    </div>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <button class="btn btn-primary" type="submit" value="Supprimer">Supprimer</button>
+    <button class="btn btn-danger" type="button" onclick="location.href='@Url.Action("ListeSuppression","Produit")'">Revenir a la liste des produits</button>
+}

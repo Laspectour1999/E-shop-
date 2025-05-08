@@ -1,0 +1,22 @@
+﻿@model E_shop.Models.Produit
+
+@{
+    ViewBag.Title = "AfficherProduit";
+}
+
+
+
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">Afficher les details du Produit</h3>
+    </div>
+    <div class="panel-body">
+        <p>Nom : @Html.DisplayFor(Model => Model.NomProduit)</p>
+        <p><img width="200" src="@Url.Action("GetImage", new {id=Model.IdProduit})"alt="Product Image"  /></p>
+        <p>Description : @Html.DisplayFor(Model => Model.Description)</p>
+        <p>Prix : @Html.DisplayFor(Model => Model.Prix)</p>
+        <p>Quantite : @Html.DisplayFor(Model => Model.Quantite)</p>
+
+    </div>
+</div>

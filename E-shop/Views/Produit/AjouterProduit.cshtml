@@ -1,0 +1,53 @@
+﻿@model E_shop.Models.Produit
+
+@{
+    ViewBag.Title = "AjouterProduit";
+}
+
+<h2>AjouterProduit</h2>
+
+@using (Html.BeginForm("AjouterProduit", "Produit", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <form class="form-horizontal">
+        <fieldset>
+            <legend>Ajouter un produit</legend>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Nom : </label>
+                <div class="col-lg-10">
+                    @Html.EditorFor(model => model.NomProduit)
+                    @Html.ValidationMessageFor(model => model.NomProduit)
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Image du produit : </label>
+                <div class="col-lg-10">
+                    <input type="file" name="Image" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Description : </label>
+                <div class="col-lg-10">
+                    @Html.EditorFor(model => model.Description)
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Quantite : </label>
+                <div class="col-lg-10">
+                    @Html.EditorFor(model => model.Quantite)
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Prix : </label>
+                <div class="col-lg-10">
+                    @Html.EditorFor(model => model.Prix)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                    <button type="submit" value="AjouterProduit" class="btn btn-primary">Ajouter</button>
+                    <button type="button" onclick="location.href='@Url.Action("ListeProduit","Produit")'">Revenir au catalogue</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+}
